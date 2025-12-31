@@ -52,6 +52,14 @@ body {
     font-weight: 500;
     white-space: nowrap; /* prevent link from wrapping */
 }
+/* ACTIVE NAV LINK */
+.nav a.active {
+    color: #fea116;           /* ORANGE */
+    font-weight: 600;
+    border-bottom: 2px solid #fea116;
+    padding-bottom: 3px;
+}
+
 
 .nav a:hover {
     color: #fea116;
@@ -112,6 +120,22 @@ body {
     color: #fff;
     line-height: 0.8;
 }
+/* POP-UP EFFECT FOR HERO TEXT */
+.text-block h1 {
+    transition: transform 0.35s ease, color 0.35s ease;
+    cursor: default;
+}
+
+/* POP-UP ON HOVER */
+.text-block h1:hover {
+    transform: scale(1.12) translateY(-4px);
+    color: #fea116;
+}
+@media (max-width: 768px) {
+    .text-block h1:hover {
+        transform: scale(1.05);
+    }
+}
 
 .text-block .yellow {
     color: #fea116;
@@ -125,20 +149,74 @@ body {
     color: #f0f0f0;
     margin: 0;
 }
+/* POP-UP EFFECT FOR HERO TEXT */
+.text-block .tagline h2 {
+    transition: transform 0.35s ease, color 0.35s ease;
+    cursor: default;
+}
 
+/* POP-UP ON HOVER */
+.text-block .tagline h2:hover {
+    transform: scale(1.12) translateY(-4px);
+    color: #fea116;
+}
 .text-block .tagline p {
     font-size: 12px;
     color: #dcdcdc;
     margin: 0;
 }
+/* POP-UP EFFECT FOR HERO TEXT */
+.text-block .tagline p {
+    transition: transform 0.35s ease, color 0.35s ease;
+    cursor: default;
+}
+
+/* POP-UP ON HOVER */
+.text-block .tagline p:hover {
+    transform: scale(1.12) translateY(-4px);
+    color: #fea116;
+}
 
 /* IMAGE BLOCK */
+/* INDEX PAGE HERO IMAGE POP-UP EFFECT */
 .image-block img {
     max-width: 300px;
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
 }
+
+/* POP-UP ON HOVER */
+.image-block img:hover {
+    transform: scale(1.12);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
+}
+/* ROTATE IN CIRCLE ON HOVER */
+.image-block img:hover {
+    animation: rotateCircle 1.2s linear;
+}
+
+/* KEYFRAMES FOR ROTATION */
+@keyframes rotateCircle {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.12);
+    }
+    100% {
+        transform: rotate(360deg) scale(1.12);
+    }
+}
+
+@media (max-width: 768px) {
+    .image-block img:hover {
+        transform: scale(1.05);
+    }
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -174,9 +252,25 @@ body {
 }
 
 .page h2 {
+     text-align: center;        /* center text */
+    font-size: 40px;
+    font-weight: 600;
     color: #f0f0f0;
+     margin-top: 60px;          /* space above */
     margin-bottom: 30px;
+    letter-spacing: 2px;
 }
+/* MENU PAGE HEADING */
+section h2 {
+    text-align: center;        /* center text */
+    font-size: 40px;
+    font-weight: 600;
+    color: #f0f0f0;            /* color */
+    margin-top: 60px;          /* space above */
+    margin-bottom: 30px;       /* space below */
+    letter-spacing: 2px;
+}
+
 
 /* MENU ITEMS */
 .menu-grid,
@@ -201,9 +295,30 @@ body {
 }
 
 /* GALLERY IMAGES */
+/* GALLERY IMAGE FIX + HOVER ANIMATION */
 .gallery img {
     width: 100%;
-    border-radius: 6px;
+    height: 220px;              /* SAME HEIGHT FOR ALL */
+    object-fit: cover;          /* CROPS IMAGE PROPERLY */
+    border-radius: 8px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+/* POP-UP / ZOOM EFFECT ON HOVER */
+.gallery img:hover {
+    transform: scale(1.15);     /* IMAGE POPS BIG */
+    z-index: 10;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+@media (max-width: 768px) {
+    .gallery img {
+        height: 180px;
+    }
+
+    .gallery img:hover {
+        transform: scale(1.08);
+    }
 }
 
 /* FOOTER */

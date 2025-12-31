@@ -1,38 +1,277 @@
-<header class="header">
-    <div class="container">
-      <a href="index.html" class="logo">
-                <img src="images/logo.jpg" alt="">
-            </a>
-        <nav class="nav">
-            <a href="index.html">Home</a>
-            <a href="menu.html">Menu</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </div>
-</header>
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>the Signature | About</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Gourmet Bites</title>
+
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ===== DESIGN SYSTEM (Big-Brand Inspired) ===== */
+    :root {
+      --bg-main: #f8fafc;        /* off-white (Apple / Stripe) */
+      --bg-soft: #eef2f7;        /* section contrast */
+      --card-bg: #ffffff;
+      --text-main: #0f172a;      /* near-black */
+      --text-muted: #475569;     /* secondary text */
+      --accent-primary: #2563eb; /* modern blue (trust) */
+      --accent-secondary: #22c55e; /* fresh green */
+      --accent-warm: #f97316;    /* food CTA */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Inter, "Segoe UI", system-ui, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding: 110px 0;
+      text-align: center;
+      background: linear-gradient(135deg, #2563eb, #1e3a8a);
+      color: #ffffff;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    /* ===== About ===== */
+    .about {
+      padding: 90px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 2.3rem;
+      margin-bottom: 18px;
+      color: var(--accent-primary);
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+      color: var(--text-muted);
+    }
+
+    .about-card {
+      background-color: var(--card-bg);
+      padding: 36px;
+      border-radius: 18px;
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+      border-top: 6px solid var(--accent-secondary);
+    }
+
+    .about-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+    }
+
+    .about-card p {
+      color: var(--text-muted);
+    }
+
+    /* ===== Values ===== */
+    .values {
+      padding: 90px 0;
+      background-color: var(--bg-soft);
+      text-align: center;
+    }
+
+    .values h2 {
+      font-size: 2.3rem;
+      margin-bottom: 50px;
+      color: var(--accent-primary);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .value-box {
+      background-color: var(--card-bg);
+      padding: 34px;
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .value-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
+    }
+
+    .value-box h4 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: var(--accent-warm);
+    }
+
+    .value-box p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ===== Social ===== */
+    .social-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .social-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--accent-primary);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .social-icons a {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      padding: 35px 0;
+      text-align: center;
+      background-color: var(--bg-soft);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+    }
+  </style>
 </head>
 <body>
 
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>About Gourmet Bites</h1>
+      <p>
+        A modern food brand crafted with precision, consistency, and taste —
+        inspired by global flavors and built for today’s lifestyle.
+      </p>
+    </div>
+  </section>
 
+  <!-- About -->
+  <section class="container about">
+    <div class="about-text">
+      <h2>Our Story</h2>
+      <p>
+        Gourmet Bites is built on clarity, quality, and execution. Every dish is
+        designed to meet modern expectations — fresh, fast, and reliable.
+      </p>
+      <p>
+        We combine culinary creativity with structured systems, ensuring
+        consistent excellence at scale.
+      </p>
+    </div>
 
-<section class="page">
-    <h2>About Us</h2>
-    <p>
-        the Signature is an online food restaurant providing hygienic,
-        fresh and delicious meals prepared by expert chefs.
-    </p>
-</section>
+    <div class="about-card">
+      <h3>Our Promise</h3>
+      <p>
+        Precision ingredients. Clean kitchens. Consistent flavors. A premium
+        experience — every order, every time.
+      </p>
+    </div>
+  </section>
 
-<footer class="footer">© 2025 the Signature Restaurant</footer>
+  <!-- Values -->
+  <section class="values">
+    <div class="container">
+      <h2>Why Leading Customers Choose Us</h2>
+
+      <div class="value-grid">
+        <div class="value-box">
+          <h4>Quality Control</h4>
+          <p>Strict sourcing and preparation standards inspired by top brands.</p>
+        </div>
+
+        <div class="value-box">
+          <h4>Operational Speed</h4>
+          <p>Optimized workflows to deliver faster without losing freshness.</p>
+        </div>
+
+        <div class="value-box">
+          <h4>Brand Consistency</h4>
+          <p>Every meal delivers the same premium experience — anywhere.</p>
+        </div>
+
+        <div class="value-box">
+          <h4>Customer Trust</h4>
+          <p>Built on transparency, reliability, and long-term relationships.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social -->
+  <section class="social-section">
+    <div class="container">
+      <h2 class="social-title">Connect With Us</h2>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Gourmet Bites. Designed with brand-grade precision.
+  </footer>
 
 </body>
 </html>

@@ -178,70 +178,47 @@ body {
 }
 
 /* IMAGE BLOCK */
-/* INDEX PAGE HERO IMAGE POP-UP EFFECT */
+.image-block {
+    width: 300px;   /* container size */
+    height: 300px;  /* keep square to fit circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* keeps it neat */
+}
+
+/* IMAGE ITSELF */
 .image-block img {
-    max-width: 300px;
     width: 100%;
-    border-radius: 10px;
+    height: 100%;
+    object-fit: cover;  /* makes sure image fills the circle */
+    border-radius: 50%; /* circular image */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
     cursor: pointer;
 }
 
-/* POP-UP ON HOVER */
+/* ROTATE ONLY ON HOVER */
 .image-block img:hover {
-    transform: scale(1.12);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
-}
-/* ROTATE IN CIRCLE ON HOVER */
-.image-block img:hover {
-    animation: rotateCircle 1.2s linear;
+    animation: rotateCircle 1.2s linear forwards;
 }
 
-/* KEYFRAMES FOR ROTATION */
+/* ROTATION KEYFRAMES */
 @keyframes rotateCircle {
-    0% {
-        transform: rotate(0deg) scale(1);
-    }
-    50% {
-        transform: rotate(180deg) scale(1.12);
-    }
-    100% {
-        transform: rotate(360deg) scale(1.12);
-    }
+    0%   { transform: rotate(0deg); }
+    50%  { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
 }
 
+/* RESPONSIVE FOR MOBILE */
 @media (max-width: 768px) {
+    .image-block {
+        width: 250px;
+        height: 250px;
+    }
     .image-block img:hover {
-        transform: scale(1.05);
+        animation: none; /* no rotation on mobile */
     }
 }
-
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .center-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .text-block h1 {
-        font-size: 36px;
-    }
-
-    .text-block .tagline h2 {
-        font-size: 20px;
-    }
-
-    .text-block .tagline p {
-        font-size: 14px;
-    }
-
-    .image-block img {
-        max-width: 250px;
-    }
-}
-
 
 
 
@@ -401,6 +378,177 @@ section h2 {
     text-decoration: none;
 }
 
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #121212;
+      color: #f0f0f0;
+      margin: 0;
+      padding-top: 60px;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 10px 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .header .container {
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    .nav a.active {
+      color: #fea116;
+      border-bottom: 2px solid #fea116;
+      padding-bottom: 3px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 40px;
+      margin: 60px 0 30px 0;
+      color: #f0f0f0;
+    }
+
+    .menu-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .menu-item {
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 10px;
+      position: relative;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.03);
+    }
+
+    .item-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .item-name {
+      font-size: 1.2em;
+      margin: 10px 0;
+      color: #ffd700;
+    }
+
+    .item-description {
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    .item-price {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #fea116;
+      margin: 10px 0;
+    }
+
+   /* Menu Item Cart Icon */
+.menu-item {
+    position: relative; /* needed for absolute positioning of cart */
+    cursor: pointer;
+}
+
+.menu-item input[type="checkbox"] {
+    display: none; /* hide the checkbox itself */
+}
+
+/* Cart Icon */
+.menu-item .cart-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #fff; /* default color */
+    transition: color 0.3s ease;
+    z-index: 2;
+}
+.menu-item {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Hide the actual checkbox */
+.menu-item input[type="checkbox"] {
+    display: none;
+}
+
+/* Cart label and icon */
+.cart-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 24px;
+    color: #fff; /* default color when not selected */
+    transition: color 0.3s ease;
+}
+/* When checked, make cart yellow */
+.menu-item input[type="checkbox"]:checked + .cart-label .cart-icon {
+    color: #FFD700; /* yellow when selected */
+}
+.cart-label:hover .cart-icon {
+    transform: scale(1.2);
+}
+.cart-icon {
+  font-size: 24px;
+  color: #fff; /* default color */
+  transition: color 0.3s ease;
+}
+
+.menu-item input[type="checkbox"]:checked + .cart-label .cart-icon {
+  color: #FFD700; /* yellow when selected */
+}
+
+    /* Done button */
+    .done-btn {
+      display: block;
+      width: 200px;
+      margin: 40px auto;
+      padding: 15px;
+      background: #fea116;
+      color: #121212;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .done-btn:hover {
+      background: #ffd700;
+    }
 
 
 

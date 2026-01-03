@@ -63,27 +63,15 @@ body {
   padding-bottom: 3px;
 }
 
-/* ===== HERO (LIKE ABOUT PAGE) ===== */
+
+/* ===== CONTACT HERO IMAGE ONLY ===== */
 .contact-hero {
-  padding: 110px 0;
-  text-align: center;
-  background: linear-gradient(
-    rgba(0,0,0,0.75),
-    rgba(0,0,0,0.75)
-  ), url('images/background.jpg') center/cover no-repeat;
+  height: 70vh;
+  margin-top: 60px; /* height of fixed header */
+  background: url("images/contact.jpg") center center no-repeat;
+  background-size: cover;
 }
 
-.contact-hero h1 {
-  font-size: 3rem;
-  color: #fff;
-  margin-bottom: 15px;
-}
-
-.contact-hero p {
-  max-width: 700px;
-  margin: auto;
-  color: var(--text-muted);
-}
 
 /* ===== CONTACT SECTION ===== */
 .contact-section {

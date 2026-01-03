@@ -34,7 +34,7 @@ body {
     display: flex;
     justify-content: space-between; /* space between logo and nav */
     align-items: center;            /* vertical alignment */
-    padding: 0 40px;               /* horizontal padding */
+    padding: 0 60px;               /* horizontal padding */
     flex-wrap: nowrap;              /* prevent wrapping */
 }
 
@@ -42,14 +42,19 @@ body {
 .nav {
     display: flex;
     align-items: center;
-    gap: 20px; /* spacing between links */
+    gap: 30px; /* spacing between links */
 }
 
 .nav a {
+   
     color: #f0f0f0;
     text-decoration: none;
-    font-weight: 500;
-    white-space: nowrap; /* prevent link from wrapping */
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+
+
 }
 /* ACTIVE NAV LINK */
 .nav a.active {
@@ -96,6 +101,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 60px;
 }
 
 /* LOGIN BOX */
@@ -193,6 +199,7 @@ a:hover {
     accent-color: #fea116;
 }
 
+
 /* RESPONSIVE ADJUSTMENTS */
 @media (max-width: 768px) {
     .login-box {
@@ -200,3 +207,29 @@ a:hover {
         padding: 30px;
     }
 }
+
+
+
+
+
+.social-icons {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-icons a {
+    color: #f5a623;
+    font-size: 20px;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: white;
+    transform: translateY(-3px);
+}
+

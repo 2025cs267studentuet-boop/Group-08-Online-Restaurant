@@ -150,17 +150,22 @@ body {
   width: 200px;
   margin: 30px auto 60px auto;
   padding: 15px;
-  background: var(--accent-primary);
-  color: var(--bg-main);
+  background: #fea116;   /* ORANGE default */
+  color: #121212;        /* dark text */
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   border-radius: 12px;
-  transition: 0.3s;
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
 }
+
 .checkout-btn:hover {
-  background: #ffd700;
+  background: #ffd700;   /* YELLOW on hover */
+  transform: scale(1.05); /* optional slight zoom effect */
 }
+
+
 
 /* ===== FOOTER ===== */
 .footer {
